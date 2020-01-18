@@ -11,6 +11,7 @@
     "url": "git+https://github.com/peterbartels/react-use-typewriter.git"
   },
   "scripts": {
+    "test": "ls -l",
     "build": "rollup -c",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
