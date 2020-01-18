@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/use-typewriter/precache-manifest.9b88a6160840a04ea79f68e70f56ed3a.js"
+  "/react-use-typewriter/precache-manifest.b8415aac93e92e44c07498c110c26b8d.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/use-typewriter/index.html", {
+workbox.routing.registerNavigationRoute("/react-use-typewriter/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
