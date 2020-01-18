@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className="wrapper">
       <div className="typewriter">
-        {currentWord.state.word} - {currentWord.state.pause}
+        {currentWord.state.word}
         
         <span className="cursor" />
       </div>
