@@ -1,12 +1,12 @@
 {
   "name": "react-use-typewriter-example",
-  "homepage": "https://github.io/use-typewriter",
+  "homepage": "https://peterbartels.github.io/react-use-typewriter/",
+  "author": "Peter Bartels <peterbartels@gmail.com>",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
-
     "react-dom": "^16.8.0",
     "react-scripts": "^2.1.3",
     "react-use-typewriter": "link:.."

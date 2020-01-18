@@ -6,14 +6,14 @@
   "directories": {
     "example": "example"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterbartels/react-use-typewriter.git"
+  },
   "scripts": {
-    "lint": "tslint '{src,tests}/**/*.{ts,tsx}' -t verbose",
-    "lint:fix": "yarn lint --fix",
-    "lint:types": "tsc --noEmit",
-    "build:cjs": "tsc",
-    "build:es": "tsc -m esNext --outDir esm",
-    "build2": "yarn build:cjs && yarn build:es",
     "build": "rollup -c",
+    "prepare": "yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
     "start": "rollup -c -w",
     "release": "semantic-release"
@@ -54,7 +54,7 @@
     "husky": "3.1.0",
     "jest": "^24.9.0",
     "prettier": "1.19.1",
-    "react": "^16.12.0",
+    "react": "^16.8.0",
     "react-dom": "16.12.0",
     "react-test-renderer": "16.12.0",
     "rollup": "^1.1.2",
