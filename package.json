@@ -1,6 +1,6 @@
 {
   "name": "react-use-typewriter",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0",
   "description": "Typewriter effect hook for react",
   "main": "dist/index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peterbartels/react-use-typewriter.git"
+    "url": "https://github.com/peterbartels/react-use-typewriter"
   },
   "scripts": {
     "test": "ls -l",
@@ -17,11 +17,12 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
     "start": "rollup -c -w",
-    "release": "semantic-release"
+    "example": "yarn build && cd example && yarn start",
+    "release": "semantic-release",
+    "semantic-release": "semantic-release"
   },
   "author": "Peter Bartels <peterbartels@gmail.com>",
   "license": "MIT",
-  "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "peerDependencies": {
@@ -67,10 +68,27 @@
     "rollup-plugin-typescript2": "^0.19.2",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-url": "^2.1.0",
-    "semantic-release": "15.14.0",
+    "semantic-release": "^16.0.2",
     "ts-jest": "24.2.0",
     "ts-loader": "6.2.1",
     "ts-node": "8.5.4",
     "typescript": "3.7.4"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "next",
+        "prerelease": "rc"
+      }
+    ],
+    "verifyConditions": [
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   }
 }

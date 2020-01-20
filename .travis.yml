@@ -1,3 +1,23 @@
+
 language: node_js
+os:
+  - linux
+cache:
+  yarn: true
+  directories:
+    - ~/.npm
+notifications:
+  email: false
 node_js:
-  - 10
+  - '10'
+script:
+  - yarn prepare
+  - yarn predeploy
+  - yarn deploy
+matrix:
+  allow_failures: []
+  fast_finish: true
+branches:
+  except:
+    - master
+    - gh-pages
