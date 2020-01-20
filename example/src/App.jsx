@@ -4,12 +4,12 @@ import "./App.css";
 
 const App = () => {
   const words = ["react", "typescript", "nodejs"];
-  const currentWord = useTypewriter(words, 6, 6);
+  const currentWord = useTypewriter(words, 100, true, 500);
 
   return (
     <div className="wrapper">
       <div className="typewriter">
-        {currentWord.state.word}
+        {currentWord}
         
         <span className="cursor" />
       </div>
