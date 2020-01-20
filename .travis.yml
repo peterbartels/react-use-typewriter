@@ -13,7 +13,6 @@ node_js:
 script:
   - yarn prepare
   - yarn predeploy
-  - yarn deploy
 matrix:
   allow_failures: []
   fast_finish: true
@@ -21,3 +20,8 @@ branches:
   except:
     - master
     - gh-pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true

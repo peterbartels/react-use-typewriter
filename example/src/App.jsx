@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useTypewriter from "react-use-typewriter";
 import "./App.css";
 

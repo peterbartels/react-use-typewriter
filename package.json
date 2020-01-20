@@ -1,11 +1,14 @@
 {
   "name": "react-use-typewriter",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.3",
   "description": "Typewriter effect hook for react",
   "main": "dist/index.js",
   "directories": {
     "example": "example"
   },
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/peterbartels/react-use-typewriter"
@@ -15,7 +18,7 @@
     "build": "rollup -c",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
+    "deploy-gh-pages": "gh-pages -d example/build",
     "start": "rollup -c -w",
     "example": "yarn build && cd example && yarn start",
     "release": "semantic-release",

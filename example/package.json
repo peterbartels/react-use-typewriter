@@ -6,11 +6,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "jest": "24.9.0",
     "react": "link:../node_modules/react",
     "react-dom": "^16.8.0",
     "react-scripts": "^2.1.3",
-    "react-use-typewriter": "link:..",
-    "jest": "24.9.0"
+    "react-use-typewriter": "link:.."
   },
   "scripts": {
     "start": " react-scripts start",
@@ -23,5 +23,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }
