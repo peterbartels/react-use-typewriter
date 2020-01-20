@@ -1,84 +1,61 @@
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export interface State {
-  currentWordIndex: number
   currentIndex: number
   count: number
   word: string
   pause: number
 }
-const useTypewriter = (words: string[], speed: number = 8, stopTime: number = 60, ref?: RefObject<HTMLElement>): { state: State, count: number } => {
-  //if (process.env.NODE_ENV === 'development') {
-  if (!ref || typeof ref !== 'object' || typeof ref.current === 'undefined') {
-    console.log('TODO: add ref check') //.error('`useScroll` expects a single ref argument.');
-  }
+const useTypewriter = (
+  words: string[],
+  speed: number = 300,
+  eraseWords: boolean = true,
+  stopTime: number = 500): string => {
 
-  const [state, setState] = useState<State>({
-    currentWordIndex: 0,
-    currentIndex: 0,
-    count: 0,
-    pause: -1,
-    word: ''
-  });
+  const [loop, setLoop] = useState(0)
+  const [index, setIndex] = useState(0);
+  const [word, setWord] = useState("")
 
-  const requestRef = useRef<number>()
-  const previousTimeRef = useRef<number>()
+  const requestRef = useRef<number>(0)
+  const previousTimeRef = useRef<number>(0)
 
-  const getPause = (prevState: State) => {
-    const pause = prevState.pause
-    const currentWordIndex = prevState.currentWordIndex
+  const count = useRef<number>(0)
+  const erasing = useRef<boolean>(false)
+  const pause = useRef<number>()
 
-    if (pause >= 0) {
-      if (pause === (stopTime / 2)) {
-        return -1
+  const animate = (time: number) => {
+
+    const deltaTime = time - previousTimeRef.current
+
+    if (deltaTime >= speed) {
+
+      const wordIndex = loop % words.length
+
+      if (index > words[wordIndex].length) {
+        time = time + stopTime
       }
-      return pause + 1
-    }
 
-    if (prevState.currentIndex === words[currentWordIndex].length - 1 && pause === -1) {
-      return 0
-    }
-
-    return -1
-  }
-
-  const animate = (time: any) => {
-    if (previousTimeRef.current != undefined) {
-
-      const deltaTime = time - previousTimeRef.current
-      setState(prevState => {
-        const nextCount = (prevState.count + deltaTime * (speed / 1000 / 2))
-
-        let currentWordIndex = prevState.currentWordIndex
-        let currentIndex = prevState.currentIndex
-        let pause = prevState.pause
-
-        if (Math.round(nextCount) !== Math.round(prevState.count)) {
-          pause = getPause(prevState)
-          if (pause === -1) {
-            if (prevState.currentIndex === words[currentWordIndex].length - 1) {
-              if (prevState.currentWordIndex === words.length - 1) {
-                currentWordIndex = 0
-              } else {
-                currentWordIndex = prevState.currentWordIndex + 1
-              }
-              currentIndex = 0
-            } else {
-              currentIndex = prevState.currentIndex + 1
-            }
-          }
+      if (index === words[wordIndex].length + 1) {
+        if (eraseWords) {
+          erasing.current = !erasing.current
+        } else {
+          setLoop(loop => loop + 1)
+          setIndex(0)
         }
+      }
 
-        return {
-          count: nextCount,
-          currentWordIndex: currentWordIndex,
-          currentIndex: currentIndex,
-          word: words[currentWordIndex].substring(0, currentIndex + 1),
-          pause: pause,
-        }
-      })
+      if (index === -1 && erasing.current) {
+        erasing.current = !erasing.current
+        setLoop(loop => loop + 1)
+        time = time + stopTime
+      }
+
+      setIndex(index => index + ((erasing.current) ? -1 : 1))
+      setWord(words[wordIndex].substring(0, index))
+
+      previousTimeRef.current = time
     }
-    previousTimeRef.current = time
+
     requestRef.current = requestAnimationFrame(animate)
   }
 
@@ -86,11 +63,17 @@ const useTypewriter = (words: string[], speed: number = 8, stopTime: number = 60
     requestRef.current = requestAnimationFrame(animate)
 
     return () => {
-      cancelAnimationFrame(requestRef.current!)
+      cancelAnimationFrame(requestRef.current)
     }
-  }, [])
+  }, [
+    loop,
+    pause,
+    count,
+    index,
+    word
+  ])
 
-  return { count: Math.round(state.count), state: state }
+  return word
 };
 
 export default useTypewriter
