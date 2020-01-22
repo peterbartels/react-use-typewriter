@@ -4,7 +4,14 @@ import "./App.css";
 
 const App = () => {
   const words = ["react", "typescript", "nodejs"];
-  const currentWord = useTypewriter(words, 100, true, 500);
+  const currentWord = useTypewriter({
+    words,
+    typeSpeed: 100,
+    eraseSpeed: 50,
+    afterErasingDelay: 1000,
+    eraseWords: true,
+    afterTypingDelay: 1000
+  });
 
   return (
     <div className="wrapper">

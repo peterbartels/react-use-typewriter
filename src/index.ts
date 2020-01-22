@@ -1,16 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 
 export interface State {
-  currentIndex: number
-  count: number
-  word: string
-  pause: number
-}
-const useTypewriter = (
   words: string[],
-  speed: number = 300,
-  eraseWords: boolean = true,
-  stopTime: number = 500): string => {
+  typeSpeed: number,
+  eraseSpeed: number,
+  afterErasingDelay: number,
+  eraseWords: boolean,
+  afterTypingDelay: number,
+}
+
+const useTypewriter = ({
+  words,
+  typeSpeed = 100,
+  eraseSpeed = 50,
+  afterErasingDelay = 1000,
+  eraseWords = true,
+  afterTypingDelay = 1000
+}: State): string => {
 
   const [loop, setLoop] = useState(0)
   const [index, setIndex] = useState(0);
@@ -18,21 +24,19 @@ const useTypewriter = (
 
   const requestRef = useRef<number>(0)
   const previousTimeRef = useRef<number>(0)
-
-  const count = useRef<number>(0)
   const erasing = useRef<boolean>(false)
-  const pause = useRef<number>()
 
   const animate = (time: number) => {
 
     const deltaTime = time - previousTimeRef.current
+    const speed = erasing.current ? eraseSpeed : typeSpeed
 
     if (deltaTime >= speed) {
 
       const wordIndex = loop % words.length
 
       if (index > words[wordIndex].length) {
-        time = time + stopTime
+        time = time + afterTypingDelay
       }
 
       if (index === words[wordIndex].length + 1) {
@@ -47,7 +51,7 @@ const useTypewriter = (
       if (index === -1 && erasing.current) {
         erasing.current = !erasing.current
         setLoop(loop => loop + 1)
-        time = time + stopTime
+        time = time + afterErasingDelay
       }
 
       setIndex(index => index + ((erasing.current) ? -1 : 1))
@@ -67,8 +71,6 @@ const useTypewriter = (
     }
   }, [
     loop,
-    pause,
-    count,
     index,
     word
   ])
