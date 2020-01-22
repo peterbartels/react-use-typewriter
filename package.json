@@ -1,6 +1,6 @@
 {
   "name": "react-use-typewriter",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Typewriter effect hook for react",
   "main": "dist/index.js",
   "directories": {
