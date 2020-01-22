@@ -2,11 +2,11 @@
 
 ## Getting Started
 
-  `$ npm install --save react-typing-effect`  
+  `npm install --save react-use-typewriter`  
   
   Or
   
-  `$ yarn add react-typing-effect`  
+  `yarn add react-use-typewriter`  
   
 ## Usage Example
 
@@ -20,7 +20,7 @@ const Example = () => {
   return (
     <div>
       {currentWord}
-      <span className="cursor" />
+      <span className="cursor">|</span>
     </div>
   );
 }
@@ -52,9 +52,6 @@ Blinking cursor is not included but can be implemented easily with CSS:
 }
 
 .cursor {
-  border-radius: 0.3vw;
-  width: 0.3vw;
-  height: 5vw;
   animation: blink 1s linear infinite forwards;
 }
 ```
