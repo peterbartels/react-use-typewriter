@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 
 export interface State {
   words: string[],
-  typeSpeed: number,
-  eraseSpeed: number,
-  afterErasingDelay: number,
-  eraseWords: boolean,
-  afterTypingDelay: number,
+  typeSpeed?: number,
+  eraseSpeed?: number,
+  afterErasingDelay?: number,
+  eraseWords?: boolean,
+  afterTypingDelay?: number,
 }
 
 const useTypewriter = ({
