@@ -11,6 +11,8 @@
 ## Usage Example
 
 ```jsx
+import useTypewriter from "react-use-typewriter";
+
 const Example = () => {
   const words = ["react", "typescript", "nodejs"];
   const currentWord = useTypewriter({words});
