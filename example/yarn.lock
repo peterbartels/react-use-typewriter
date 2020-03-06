@@ -8949,12 +8949,10 @@ react-scripts@^2.1.3:
     fsevents "1.2.4"
 
 "react-use-typewriter@link:..":
-  version "0.0.0"
-  uid ""
+  version "1.0.0-alpha"
 
 "react@link:../node_modules/react":
   version "0.0.0"
-  uid ""
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
