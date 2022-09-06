@@ -1,5 +1,7 @@
 # React Typewriter effect hook
 
+[Demo: peterbartels.github.io/react-use-typewriter/](https://peterbartels.github.io/react-use-typewriter/)
+
 ## Getting Started
 
   `npm install --save react-use-typewriter`  
