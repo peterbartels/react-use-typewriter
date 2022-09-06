@@ -37,8 +37,6 @@
     "@babel/preset-env": "7.7.7",
     "@babel/preset-react": "7.7.4",
     "@babel/preset-typescript": "7.7.7",
-    "@semantic-release/changelog": "3.0.6",
-    "@semantic-release/git": "7.0.18",
     "@types/react": "16.9.11",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
@@ -66,7 +64,6 @@
     "rollup-plugin-typescript2": "^0.19.2",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-url": "^2.1.0",
-    "semantic-release": "^17.2.3",
     "ts-loader": "6.2.1",
     "ts-node": "8.5.4",
     "typescript": "3.7.4"
