@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-use-typewriter/static/css/main.5de6f51f.chunk.css",
-  "main.js": "/react-use-typewriter/static/js/main.fb43ac67.chunk.js",
-  "main.js.map": "/react-use-typewriter/static/js/main.fb43ac67.chunk.js.map",
-  "runtime~main.js": "/react-use-typewriter/static/js/runtime~main.11ab564d.js",
-  "runtime~main.js.map": "/react-use-typewriter/static/js/runtime~main.11ab564d.js.map",
-  "static/js/2.979e2295.chunk.js": "/react-use-typewriter/static/js/2.979e2295.chunk.js",
-  "static/js/2.979e2295.chunk.js.map": "/react-use-typewriter/static/js/2.979e2295.chunk.js.map",
-  "index.html": "/react-use-typewriter/index.html",
-  "precache-manifest.b8415aac93e92e44c07498c110c26b8d.js": "/react-use-typewriter/precache-manifest.b8415aac93e92e44c07498c110c26b8d.js",
-  "service-worker.js": "/react-use-typewriter/service-worker.js",
-  "static/css/main.5de6f51f.chunk.css.map": "/react-use-typewriter/static/css/main.5de6f51f.chunk.css.map"
+  "files": {
+    "main.css": "/react-use-typewriter/static/css/main.8d8962e6.css",
+    "main.js": "/react-use-typewriter/static/js/main.96a75e84.js",
+    "index.html": "/react-use-typewriter/index.html",
+    "main.8d8962e6.css.map": "/react-use-typewriter/static/css/main.8d8962e6.css.map",
+    "main.96a75e84.js.map": "/react-use-typewriter/static/js/main.96a75e84.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d8962e6.css",
+    "static/js/main.96a75e84.js"
+  ]
 }
